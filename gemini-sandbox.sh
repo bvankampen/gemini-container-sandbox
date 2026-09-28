@@ -16,9 +16,8 @@ fi
 podman run --rm -it \
   -e TERM="${TERM:-xterm-256color}" \
   -e COLORTERM="${COLORTERM:-truecolor}" \
-  --env-file .env \
+  --env-file $CONFIG_DIR/.env \
   -v $CONFIG_DIR/gcloud:/root/.config/gcloud:z \
   -v $CONFIG_DIR/gemini:/root/.gemini:z \
   --mount type=bind,src="$WORKSPACE",dst=/workspace,relabel=private \
   gemini-sandbox /usr/local/bin/gemini
-
